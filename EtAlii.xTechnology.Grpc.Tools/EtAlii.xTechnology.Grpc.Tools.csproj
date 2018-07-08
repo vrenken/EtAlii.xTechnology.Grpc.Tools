@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Version.props" />
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0;netstandard2.0;net47</TargetFrameworks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Authors>Peter Vrenken</Authors>
+    <Product>EtAlii.xTechnology.Grpc.Tools</Product>
+    <Company>EtAlii</Company>
+    <Summary>Grpc made easy using some Visual Studio magic...</Summary>
+    <Description>Package that contains MSBuild magic to easily incorporate Grpc and Protobuf in Visual Studio C# projects.
+What it does:
+- Add GRPC build targets. 
+- On compilation these detect changes to the .proto in the project.
+- For the changed proto files the corresponding C# wrappers and proto definitions will be created. 
+- These are made visible as nested files below the .proto file. 
+</Description>
+    <Copyright>Copyright ©2018 Peter Vrenken</Copyright>
+    <Version>$(PackageVersion)</Version>
+    <PackageLicenseUrl>https://github.com/vrenken/EtAlii.xTechnology.Grpc.Tools/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/vrenken/EtAlii.xTechnology.Grpc.Tools</PackageProjectUrl>
+    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageTags>Google Grpc Proto Protobuf MSBuild Targets</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludeBuildOutput>False</IncludeBuildOutput>
+    <NoDefaultExcludes>True</NoDefaultExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="gitignore" Link=".gitignore">
+      <Pack>true</Pack>
+      <PackagePath>content\</PackagePath>
+    </Content>
+    <Content Include="EtAlii.xTechnology.Grpc.Tools.Targets">
+      <Pack>true</Pack>
+      <PackagePath>Build\</PackagePath>
+    </Content>
+    <Content Include="readme2.txt">
+      <Pack>true</Pack>
+      <PackagePath>content\</PackagePath>
+    </Content>
+  </ItemGroup>
+</Project>
