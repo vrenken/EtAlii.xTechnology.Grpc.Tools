@@ -1,0 +1,29 @@
+﻿//
+// Copyright 2018 Peter Vrenken.
+
+syntax = "proto3";
+
+option csharp_namespace="EtAlii.xTechnology.Grpc.Tools.Examples";
+
+package EtAlii.xTechnology.Grpc.Tools.Examples;
+
+// The Example service.
+service ExampleService
+{
+    // <summary>
+    // Retrieves all available guids in an array.
+    // </summary>
+    // <returns> Array with all guids. </returns>
+    rpc InvokeExample(ExampleRequest) returns (ExampleResponse) {};
+
+}
+
+message ExampleRequest
+{
+    string Message = 1;
+}
+
+message ExampleResponse
+{
+    string Message = 1;
+}
