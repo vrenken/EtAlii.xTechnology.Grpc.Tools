@@ -9,7 +9,9 @@
     <ProtobufSubCsFileExtension>.Protobuf.cs</ProtobufSubCsFileExtension>
     <GrpcSubCsFileExtension>.Grpc.cs</GrpcSubCsFileExtension>
 
+    <GrpcPackageName>Grpc</GrpcPackageName>
     <GrpcToolsPackageName>Grpc.Tools</GrpcToolsPackageName>
+    <ProtoBufPackageName>Google.Protobuf</ProtoBufPackageName>
     <ProtoBufToolsPackageName>Google.Protobuf.Tools</ProtoBufToolsPackageName>
     <!-- =========================================================================================== -->
   </PropertyGroup>
@@ -21,19 +23,35 @@
     <!-- In case we haven't got any outputs yet -->
   </ItemGroup>
 
-  <Target Name="GenerateProtoBufCsCode"
-          BeforeTargets="BeforeBuild"
-          DependsOnTargets="BeforeGenerateProtoBufCsCode"
-        Inputs="@(ProtobufInputs)"
-        Outputs="@(ProtobufOutputs)">
+  <Target 
+    Name="GenerateProtoBufCsCode"
+    BeforeTargets="BeforeBuild"
+    DependsOnTargets="BeforeGenerateProtoBufCsCode"
+    Inputs="@(ProtobufInputs)"
+    Outputs="@(ProtobufOutputs)">
 
     <!-- Let's find out which GRPC and Protobuf package versions are installed in this project. -->
+    <FindInList CaseSensitive="false"
+                List="@(PackageReference)"
+                MatchFileNameOnly="True"
+                ItemSpecToFind="$(GrpcPackageName)">
+      <Output TaskParameter="ItemFound" ItemName="GrpcFound"/>
+    </FindInList>
+
     <FindInList CaseSensitive="false"
                 List="@(PackageReference)"
                 MatchFileNameOnly="True"
                 ItemSpecToFind="$(GrpcToolsPackageName)">
       <Output TaskParameter="ItemFound" ItemName="GrpcToolsFound"/>
     </FindInList>
+
+    <FindInList CaseSensitive="false"
+                List="@(PackageReference)"
+                MatchFileNameOnly="True"
+                ItemSpecToFind="$(ProtoBufPackageName)">
+      <Output TaskParameter="ItemFound" ItemName="ProtoBufFound"/>
+    </FindInList>
+
     <FindInList CaseSensitive="false"
                 List="@(PackageReference)"
                 MatchFileNameOnly="True"
@@ -46,8 +64,10 @@
     <PropertyGroup>
       <ProtoBufArchitecture>windows_x64</ProtoBufArchitecture>
       <!--<ProtoBufArchitecture>linux_x64</ProtoBufArchitecture>-->
-      <ProtoBufToolsVersion>%(ProtoBufToolsFound.Version)</ProtoBufToolsVersion>
+      <GrpcVersion>%(GrpcFound.Version)</GrpcVersion>
       <GrpcToolsVersion>%(GrpcToolsFound.Version)</GrpcToolsVersion>
+      <ProtoBufVersion>%(ProtoBufFound.Version)</ProtoBufVersion>
+      <ProtoBufToolsVersion>%(ProtoBufToolsFound.Version)</ProtoBufToolsVersion>
       <ProtoBufInputFolder>protos</ProtoBufInputFolder>
       <ProtoBufExe>"$(NuGetPackageRoot)grpc.tools\$(GrpcToolsVersion)\tools\$(ProtoBufArchitecture)\protoc.exe"</ProtoBufExe>
       <ProtoBufPlugin>--plugin=protoc-gen-grpc="$(NuGetPackageRoot)grpc.tools\$(GrpcToolsVersion)\tools\$(ProtoBufArchitecture)\grpc_csharp_plugin.exe"</ProtoBufPlugin>
@@ -79,6 +99,12 @@
     <!-- =========================================================================================== -->
 
     <Message Text="==== EtAlii.xTechnology.MsBuild.Grpc compiler ====" />
+    <MissingPackageError>NuGet package not referenced by project. Add it using the NuGet package manager.</MissingPackageError>
+    <Error Condition="'$(GrpcVersion)' == ''" Text="$(GrpcPackageName) $(MissingPackageError)" />
+    <Error Condition="'$(GrpcToolsVersion)' == ''" Text="$(GrpcToolsPackageName) $(MissingPackageError)" />
+    <Error Condition="'$(ProtoBufVersion)' == ''" Text="$(ProtoBufPackageName) $(MissingPackageError)" />
+    <Error Condition="'$(ProtoBufToolsVersion)' == ''" Text="$(ProtoBufToolsPackageName) $(MissingPackageError)" />
+
     <Message Text="Grpc.Tools NuGet package version: $(GrpcToolsVersion)" />
     <Message Text="Google.Protobuf.Tools NuGet package version: $(ProtoBufToolsVersion)" />
     <Message Text="Input .proto files:" />

@@ -25,11 +25,11 @@ namespace EtAlii.xTechnology.Grpc.Tools.Examples {
             "ChBIZWxsb1dvcmxkLnByb3RvEiZFdEFsaWkueFRlY2hub2xvZ3kuR3JwYy5U",
             "b29scy5FeGFtcGxlcyIkChFIZWxsb1dvcmxkUmVxdWVzdBIPCgdNZXNzYWdl",
             "GAEgASgJIiUKEkhlbGxvV29ybGRSZXNwb25zZRIPCgdNZXNzYWdlGAEgASgJ",
-            "Mp8BChJIZWxsb1dvcmxkU2VydmljZTISiAEKDUludm9rZUV4YW1wbGUSOS5F",
-            "dEFsaWkueFRlY2hub2xvZ3kuR3JwYy5Ub29scy5FeGFtcGxlcy5IZWxsb1dv",
-            "cmxkUmVxdWVzdBo6LkV0QWxpaS54VGVjaG5vbG9neS5HcnBjLlRvb2xzLkV4",
-            "YW1wbGVzLkhlbGxvV29ybGRSZXNwb25zZSIAQimqAiZFdEFsaWkueFRlY2hu",
-            "b2xvZ3kuR3JwYy5Ub29scy5FeGFtcGxlc2IGcHJvdG8z"));
+            "Mp4BChFIZWxsb1dvcmxkU2VydmljZRKIAQoNSW52b2tlRXhhbXBsZRI5LkV0",
+            "QWxpaS54VGVjaG5vbG9neS5HcnBjLlRvb2xzLkV4YW1wbGVzLkhlbGxvV29y",
+            "bGRSZXF1ZXN0GjouRXRBbGlpLnhUZWNobm9sb2d5LkdycGMuVG9vbHMuRXhh",
+            "bXBsZXMuSGVsbG9Xb3JsZFJlc3BvbnNlIgBCKaoCJkV0QWxpaS54VGVjaG5v",
+            "bG9neS5HcnBjLlRvb2xzLkV4YW1wbGVzYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {

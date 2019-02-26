@@ -15,9 +15,9 @@ namespace EtAlii.xTechnology.Grpc.Tools.Examples {
   /// <summary>
   /// The Example service.
   /// </summary>
-  public static partial class HelloWorldService2
+  public static partial class HelloWorldService
   {
-    static readonly string __ServiceName = "EtAlii.xTechnology.Grpc.Tools.Examples.HelloWorldService2";
+    static readonly string __ServiceName = "EtAlii.xTechnology.Grpc.Tools.Examples.HelloWorldService";
 
     static readonly grpc::Marshaller<global::EtAlii.xTechnology.Grpc.Tools.Examples.HelloWorldRequest> __Marshaller_HelloWorldRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::EtAlii.xTechnology.Grpc.Tools.Examples.HelloWorldRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::EtAlii.xTechnology.Grpc.Tools.Examples.HelloWorldResponse> __Marshaller_HelloWorldResponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::EtAlii.xTechnology.Grpc.Tools.Examples.HelloWorldResponse.Parser.ParseFrom);
@@ -35,8 +35,8 @@ namespace EtAlii.xTechnology.Grpc.Tools.Examples {
       get { return global::EtAlii.xTechnology.Grpc.Tools.Examples.HelloWorldReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of HelloWorldService2</summary>
-    public abstract partial class HelloWorldService2Base
+    /// <summary>Base class for server-side implementations of HelloWorldService</summary>
+    public abstract partial class HelloWorldServiceBase
     {
       /// <summary>
       /// &lt;summary>
@@ -54,26 +54,26 @@ namespace EtAlii.xTechnology.Grpc.Tools.Examples {
 
     }
 
-    /// <summary>Client for HelloWorldService2</summary>
-    public partial class HelloWorldService2Client : grpc::ClientBase<HelloWorldService2Client>
+    /// <summary>Client for HelloWorldService</summary>
+    public partial class HelloWorldServiceClient : grpc::ClientBase<HelloWorldServiceClient>
     {
-      /// <summary>Creates a new client for HelloWorldService2</summary>
+      /// <summary>Creates a new client for HelloWorldService</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public HelloWorldService2Client(grpc::Channel channel) : base(channel)
+      public HelloWorldServiceClient(grpc::Channel channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for HelloWorldService2 that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for HelloWorldService that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public HelloWorldService2Client(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public HelloWorldServiceClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected HelloWorldService2Client() : base()
+      protected HelloWorldServiceClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
-      protected HelloWorldService2Client(ClientBaseConfiguration configuration) : base(configuration)
+      protected HelloWorldServiceClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
@@ -134,15 +134,15 @@ namespace EtAlii.xTechnology.Grpc.Tools.Examples {
         return CallInvoker.AsyncUnaryCall(__Method_InvokeExample, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
-      protected override HelloWorldService2Client NewInstance(ClientBaseConfiguration configuration)
+      protected override HelloWorldServiceClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new HelloWorldService2Client(configuration);
+        return new HelloWorldServiceClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static grpc::ServerServiceDefinition BindService(HelloWorldService2Base serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(HelloWorldServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_InvokeExample, serviceImpl.InvokeExample).Build();
