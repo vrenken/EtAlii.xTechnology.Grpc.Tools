@@ -1,21 +1,38 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testfixture.Local", "Testfixture.Local\Testfixture.Local.csproj", "{25B33C61-5B9D-4E74-832B-0EA4E4EB58BE}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testfixture.Local", "Testfixture.Local\Testfixture.Local.csproj", "{25B33C61-5B9D-4E74-832B-0EA4E4EB58BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testfixture.Remote", "Testfixture.Remote\Testfixture.Remote.csproj", "{6EEF27F5-0F11-4B0F-B437-4152D235FF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testfixture.Remote", "Testfixture.Remote\Testfixture.Remote.csproj", "{6EEF27F5-0F11-4B0F-B437-4152D235FF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtAlii.xTechnology.Grpc.Tools", "EtAlii.xTechnology.Grpc.Tools\EtAlii.xTechnology.Grpc.Tools.csproj", "{E0FB92FC-4FC4-4AAD-A057-7D122E4FCF8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EtAlii.xTechnology.Grpc.Tools", "EtAlii.xTechnology.Grpc.Tools\EtAlii.xTechnology.Grpc.Tools.csproj", "{E0FB92FC-4FC4-4AAD-A057-7D122E4FCF8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Globals", "_Globals", "{F0CD3B6B-FE08-4C26-B775-1A61F6BB562A}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		NuGet.Config = NuGet.Config
+		README.md = README.md
+		Version.props = Version.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E0FB92FC-4FC4-4AAD-A057-7D122E4FCF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0FB92FC-4FC4-4AAD-A057-7D122E4FCF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25B33C61-5B9D-4E74-832B-0EA4E4EB58BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{25B33C61-5B9D-4E74-832B-0EA4E4EB58BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EEF27F5-0F11-4B0F-B437-4152D235FF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EEF27F5-0F11-4B0F-B437-4152D235FF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0FB92FC-4FC4-4AAD-A057-7D122E4FCF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0FB92FC-4FC4-4AAD-A057-7D122E4FCF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58AEF929-56B7-4E3E-9669-37E212B0CF4E}
 	EndGlobalSection
 EndGlobal

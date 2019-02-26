@@ -1,4 +1,5 @@
-<!-- (C) 2018 Peter Vrenken -->
+<!-- (C) 2019 Peter Vrenken -->
+
 <Project>
   <PropertyGroup>
     <!-- =========================================================================================== -->
@@ -59,15 +60,12 @@
       </OriginalProtoFiles>
       <ProtoFiles Include="@(OriginalProtoFiles)" >
         <TrimmedFolderWithRoot>%(RootDir)$([System.String]::Copy('%(Directory)').TrimEnd('\'))</TrimmedFolderWithRoot>
-        <!--<TemporaryFile>$(MSBuildProjectDirectory)\$(ProtoBufTempFolder)\$([System.String]::Copy('%(Filename)').Replace('_',''))$(CsFileExtension)</TemporaryFile>
-        <TemporaryGrpcFile>$(MSBuildProjectDirectory)\$(ProtoBufTempFolder)\$([System.String]::Copy('%(Filename)').Replace('_',''))Grpc$(CsFileExtension)</TemporaryGrpcFile>-->
         <TemporaryFile>$(ProtoBufTempFolder)\$([System.String]::Copy('%(Filename)').Replace('_',''))$(CsFileExtension)</TemporaryFile>
         <TemporaryGrpcFile>$(ProtoBufTempFolder)\$([System.String]::Copy('%(Filename)').Replace('_',''))Grpc$(CsFileExtension)</TemporaryGrpcFile>
         <FinalProtobufFile>%(RootDir)%(Directory)%(Filename)$(ProtobufSubCsFileExtension)</FinalProtobufFile>
         <FinalProtobufFilesToClean>%(RootDir)%(Directory)*$(ProtobufSubCsFileExtension)</FinalProtobufFilesToClean>
         <FinalGrpcFile>%(RootDir)%(Directory)%(Filename)$(GrpcSubCsFileExtension)</FinalGrpcFile>
         <FinalGrpcFilesToClean>%(RootDir)%(Directory)*$(GrpcSubCsFileExtension)</FinalGrpcFilesToClean>
-        <!--<ProtoBufTempFolder>$(ProtoBufTempFolder)\$([System.String]::Copy('%(Filename)').Replace('_',''))</ProtoBufTempFolder>-->
       </ProtoFiles>
     </ItemGroup>
     <ItemGroup>
@@ -96,7 +94,7 @@
     <Exec Command="$(ProtoCompilerCommandLine)" ConsoleToMSBuild="True" ContinueOnError="True" EchoOff="False">
       <!--<Output TaskParameter="ConsoleOutput" PropertyName="OutputOfExec" />-->
     </Exec>
-    <Message Text="COMPILED: $(ProtoCompilerCommandLine)" />
+    <!--<Message Text="COMPILED: $(ProtoCompilerCommandLine)" />-->
 
     <Move SourceFiles="%(ProtoFiles.TemporaryFile)" DestinationFiles="%(ProtoFiles.FinalProtobufFile)" Condition="Exists(%(ProtoFiles.TemporaryFile))"/>
     <Move SourceFiles="%(ProtoFiles.TemporaryGrpcFile)" DestinationFiles="%(ProtoFiles.FinalGrpcFile)" Condition="Exists(%(ProtoFiles.TemporaryGrpcFile))"/>
@@ -127,7 +125,7 @@
       <DependentUpon>$([System.String]::Copy('%(Filename)%(Extension)').Replace('$(GrpcSubCsFileExtension)','.proto'))</DependentUpon>
     </Compile>
 
-    <None Include="$(NuGetPackageRoot)$(ProtoBufToolsPackageName)\3.5.1\tools\google\protobuf\*.proto" Visible="False" >
+    <None Include="$(NuGetPackageRoot)$(ProtoBufToolsPackageName)\$(ProtoBufToolsVersion)\tools\google\protobuf\*.proto" Visible="False" >
       <Link>Internal\Api\Google\Protobuf\%(Filename)%(Extension)</Link>
     </None>       
   </ItemGroup>

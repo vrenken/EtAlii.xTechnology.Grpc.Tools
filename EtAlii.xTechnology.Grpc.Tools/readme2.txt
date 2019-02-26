@@ -1,2 +1,0 @@
-*.Grpc.cs
-*.Protobuf.cs

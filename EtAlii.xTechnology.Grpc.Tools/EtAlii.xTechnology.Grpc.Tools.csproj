@@ -28,17 +28,9 @@ What it does:
     <NoDefaultExcludes>True</NoDefaultExcludes>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="gitignore" Link=".gitignore">
-      <Pack>true</Pack>
-      <PackagePath>content\</PackagePath>
-    </Content>
-    <Content Include="EtAlii.xTechnology.Grpc.Tools.Targets">
-      <Pack>true</Pack>
-      <PackagePath>Build\</PackagePath>
-    </Content>
-    <Content Include="readme2.txt">
-      <Pack>true</Pack>
-      <PackagePath>content\</PackagePath>
+    <!--Use the lines below to make sure that the .NET standard libraries are included in the host output, even when they aren't consumed directy by the project. -->
+    <Content Include="NuGet.Targets">
+      <PackagePath>build\$(TargetFramework)\$(MSBuildProjectName).Targets</PackagePath>
     </Content>
   </ItemGroup>
 </Project>
