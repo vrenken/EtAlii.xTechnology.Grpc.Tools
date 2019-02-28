@@ -95,11 +95,11 @@
 
     <PropertyGroup>
       <ProtoBufCommandLinePrefix>$(ProtoBufExe) --grpc_out="$(ProtoBufTempFolder)" --csharp_out="$(ProtoBufTempFolder)" $(ProtoBufPlugin)</ProtoBufCommandLinePrefix>
+      <MissingPackageError>NuGet package not referenced by project. Add it using the NuGet package manager.</MissingPackageError>
     </PropertyGroup>
     <!-- =========================================================================================== -->
 
     <Message Text="==== EtAlii.xTechnology.MsBuild.Grpc compiler ====" />
-    <MissingPackageError>NuGet package not referenced by project. Add it using the NuGet package manager.</MissingPackageError>
     <Error Condition="'$(GrpcVersion)' == ''" Text="$(GrpcPackageName) $(MissingPackageError)" />
     <Error Condition="'$(GrpcToolsVersion)' == ''" Text="$(GrpcToolsPackageName) $(MissingPackageError)" />
     <Error Condition="'$(ProtoBufVersion)' == ''" Text="$(ProtoBufPackageName) $(MissingPackageError)" />
